@@ -1,4 +1,4 @@
-package com.lms.auth.infrastructure.adapter.dao;
+package com.lms.auth.infrastructure.adapter.jpa.dao;
 
 import com.lms.auth.domain.model.UserModel;
 import com.lms.auth.domain.port.CreateUserModelPort;

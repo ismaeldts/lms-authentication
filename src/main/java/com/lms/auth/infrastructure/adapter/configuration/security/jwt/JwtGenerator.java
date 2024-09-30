@@ -28,6 +28,19 @@ public class JwtGenerator {
         .compact();
   }
 
+  // Generar el refresh token
+  public String generateRefreshToken(Authentication authentication, String userRole) {
+    return Jwts.builder()
+        .setSubject(authentication.getName())
+        .setIssuedAt(new Date())
+        .setExpiration(new Date(System.currentTimeMillis() + SecurityConstants.JWT_EXPIRATION * 3))
+        .signWith(new SecretKeySpec(Base64.getDecoder().decode(SecurityConstants.JWT_SECRET),
+            SignatureAlgorithm.HS256.getJcaName()), SignatureAlgorithm.HS256)
+        .claim("user_role", userRole)
+        .compact();
+  }
+
+
   public String getUsernameFromJWT(String token) {
     return Jwts.parserBuilder()
         .setSigningKey(new SecretKeySpec(Base64.getDecoder().decode(SecurityConstants.JWT_SECRET),

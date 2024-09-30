@@ -1,7 +1,7 @@
 package com.lms.auth.infrastructure.adapter.configuration.security.userdetails;
 
 import com.lms.auth.domain.model.UserModel;
-import com.lms.auth.infrastructure.adapter.dao.UserBdPort;
+import com.lms.auth.infrastructure.adapter.jpa.dao.UserBdPort;
 import java.util.Collection;
 import java.util.List;
 import lombok.RequiredArgsConstructor;
